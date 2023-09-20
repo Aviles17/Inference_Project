@@ -54,9 +54,10 @@ class No:
         base_string = f" ¬({self.symbol})"
         count_nor_char = base_string.count("¬")
         if(count_nor_char % 2 == 0):
-            match = re.findall(r'[a-zA-Z0-9\sñ]+', base_string)
+            match = re.findall(r'[a-zA-Z0-9\sñ>/-]+', base_string)
             if match:
                 extracted_string = ''.join(match)
+                extracted_string = re.sub(' +', ' ', extracted_string)
                 
                 return extracted_string.strip()
             else:
